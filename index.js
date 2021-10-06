@@ -47,7 +47,7 @@ Use the copy function below to do the following:
 */
 
 function copy(array){
-  let copyArray =[...originalFlavors];
+  let copyArray =[...array];
   return copyArray;
 }    
 copy(originalFlavors);
@@ -72,7 +72,7 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 
 function is31Flavors(array){
  //conditional here if array.length is 31 flavors return true, else return false, **exact match
- if (originalFlavors.length === 31){
+ if (array.length === 31){
    return true;
  }
  else{
@@ -119,7 +119,7 @@ function removeLastFlavor(array){
 array.pop();
 return array;
 }
-console.log('Task 6', removeLastFlavor(originalFlavors));
+console.log('Task 4', removeLastFlavor(originalFlavors));
 
 
 
@@ -158,14 +158,16 @@ Use the removeFlavorByName function below to do the following:
 */
 //2 param array, string
 function removeFlavorByName(array, string){
-  for (i = 0; i < array.length; i++){
-    array.splice(string,1);
+  for (let i = 0; i < array.length; i++){
+    if (array[i] === string)
+    array.splice(i, 1);
   }
   return array;
   //loop through array, check to see if string is at that index, if it is, remove it
   //looking for exact match
   //return array
 }
+removeFlavorByName(originalFlavors, "Vanilla")
 console.log(removeFlavorByName(originalFlavors, "Vanilla"));
 
 
