@@ -42,12 +42,18 @@ With all of these changes going on, we don't want to lose track of the actual, o
 /*
 Use the copy function below to do the following:
   1. receive an array as a parameter - you will pass in originalFlavors as an argument when the function is invoked.
+  // 1 param - called array
   2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(array){
+  let copyArray =[...originalFlavors];
+  return copyArray;
 }    
+copy(originalFlavors);
+console.log(copy(originalFlavors));
+
+//return copy of array
 
 
 
@@ -62,11 +68,19 @@ Confirm that an array is exactly 31 flavors. Your function should accept:
 
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
+//1 param called array
 
-
-function is31Flavors(/*your code here*/){
- /*your code here*/
+function is31Flavors(array){
+ //conditional here if array.length is 31 flavors return true, else return false, **exact match
+ if (originalFlavors.length === 31){
+   return true;
+ }
+ else{
+   return false;
+ }
 }
+is31Flavors(originalFlavors);
+console.log(is31Flavors(originalFlavors));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -80,10 +94,14 @@ Use the addFlavor function below to do the following:
   For example: addFlavor(originalFlavors, "Rainbow Sherbert") should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
+//2 params - array, flavor
+function addFlavor(array, string){
 
-function addFlavor(/*your code here*/){
- /*your code here*/
+array.unshift(string);
+return array;
 }
+
+console.log(addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -96,10 +114,12 @@ Use the removeLastFlavor function below to do the following:
 
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
-
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+//1 param - array
+function removeLastFlavor(array){
+array.pop();
+return array;
 }
+console.log('Task 6', removeLastFlavor(originalFlavors));
 
 
 
@@ -113,10 +133,13 @@ Use the getFlavorByIndex function below to do the following:
 
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
-
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+//2 param - array, index
+function getFlavorByIndex(array, index){
+  originalFlavors.slice(index, index + 1);
+  return array[index];
 }
+console.log(getFlavorByIndex(originalFlavors, 2));
+//Returns 'Black Walnut'
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -133,10 +156,18 @@ Use the removeFlavorByName function below to do the following:
 
   HINT: You can use .splice() for this
 */
-
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+//2 param array, string
+function removeFlavorByName(array, string){
+  for (i = 0; i < array.length; i++){
+    array.splice(string,1);
+  }
+  return array;
+  //loop through array, check to see if string is at that index, if it is, remove it
+  //looking for exact match
+  //return array
 }
+console.log(removeFlavorByName(originalFlavors, "Vanilla"));
+
 
 
 
@@ -159,10 +190,20 @@ Use the filterByWord function below to do the following:
 
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
-
-function filterByWord(/*your code here*/){
-  /*your code here*/
+//2 params array, string
+ // new array to push our items to
+  //loop through array and check to see if the item includes string, if it does, push to new array
+  //return new array
+function filterByWord(array, string){
+  let filteredArray = [];
+  for (let i = 0; i < array.length; i++){
+    if(array[i].includes(string)){
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
 }
+console.log(filterByWord(originalFlavors, 'Chocolate'));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
